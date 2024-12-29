@@ -24,6 +24,7 @@
   },
   "name":"APIS Input",
   "resources":[
+    {"id":{"name":"sys_ApisInput","path":"objects/sys_ApisInput/sys_ApisInput.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"ctor_ApisInputBindingProcessor","path":"scripts/ctor_ApisInputBindingProcessor/ctor_ApisInputBindingProcessor.yy",},},
     {"id":{"name":"ctor_ApisInputException","path":"scripts/ctor_ApisInputException/ctor_ApisInputException.yy",},},

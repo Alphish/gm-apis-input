@@ -1,6 +1,14 @@
 function ApisInputSystem() constructor {
     bindings_by_id = {};
     
+    static init = function() {
+        if (static_get(self) == static_get(ApisInputSystem)) {
+            throw ApisInputException.custom_system_required();
+        } else {
+            throw ApisInputException.method_not_implemented(self, nameof(init));
+        }
+    }
+    
     // --------
     // Bindings
     // --------
