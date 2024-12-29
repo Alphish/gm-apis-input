@@ -31,6 +31,7 @@
     {"id":{"name":"ctor_ApisInputPressBinding","path":"scripts/ctor_ApisInputPressBinding/ctor_ApisInputPressBinding.yy",},},
     {"id":{"name":"ctor_ApisInputSignal","path":"scripts/ctor_ApisInputSignal/ctor_ApisInputSignal.yy",},},
     {"id":{"name":"ctor_ApisInputSignalBinding","path":"scripts/ctor_ApisInputSignalBinding/ctor_ApisInputSignalBinding.yy",},},
+    {"id":{"name":"ctor_ApisInputSystem","path":"scripts/ctor_ApisInputSystem/ctor_ApisInputSystem.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
