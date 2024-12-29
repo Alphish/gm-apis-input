@@ -13,3 +13,4 @@ if (!is_instanceof(system, ApisInputSystem))
     throw ApisInputException.invalid_system_constructor();
 
 system.init();
+system.reconfigure();

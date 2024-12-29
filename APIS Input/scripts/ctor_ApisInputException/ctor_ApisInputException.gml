@@ -7,6 +7,13 @@ function ApisInputException(_code, _description) constructor {
 // Creating exceptions
 // -------------------
 
+ApisInputException.instance_not_found = function() {
+    return new ApisInputException(
+        $"apis_input_instance_not_found",
+        $"Cannot use the APIS Input functionality without an active APIS Input system instance."
+        );
+}
+
 ApisInputException.instance_duplicate = function() {
     return new ApisInputException(
         $"apis_input_instance_duplicate",
@@ -37,9 +44,33 @@ ApisInputException.method_not_implemented = function(_caller, _method) {
         );
 }
 
+ApisInputException.unexpected_type = function(_entity, _identifier, _type, _found) {
+    var _expected = script_get_name(_type);
+    var _actual = is_struct(_found) ? instanceof(_found) : typeof(_found);
+    
+    return new ApisInputException(
+        $"apis_input_unexpected_type",
+        $"The {_entity} with '{_identifier}' identifier was expected to be an instance of {_expected}, but was {_actual} instead."
+        );
+}
+
 ApisInputException.binding_duplicate = function(_identifier) {
     return new ApisInputException(
         $"apis_input_binding_duplicate",
         $"Cannot define another input binding with '{_identifier}' identifier. The input system already defines a scheme with this identifier."
+        );
+}
+
+ApisInputException.scheme_duplicate = function(_identifier) {
+    return new ApisInputException(
+        $"apis_input_scheme_duplicate",
+        $"Cannot define another input scheme with '{_identifier}' identifier. The input system already defines a scheme with this identifier."
+        );
+}
+
+ApisInputException.state_duplicate = function(_scheme, _identifier) {
+    return new ApisInputException(
+        $"apis_input_state_duplicate",
+        $"Cannot define another input state with '{_identifier}' identifier. The scheme '{_scheme.identifier}' already defines an input state with this identifier."
         );
 }
