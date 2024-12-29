@@ -39,7 +39,7 @@ function ApisInputPressState(_scheme, _identifier) : ApisInputState(_scheme, _id
         add_binding(_binding);
     }
     
-    static bind_keyboard_press = function(_identifier, _key, _modifiers = undefined, _groupid = undefined, _priority = 0) {
+    static bind_keyboard_press = function(_identifier, _key, _modifiers = undefined, _groupid = undefined, _priority = undefined) {
         var _binding = apis_input_get_system().define_binding_keyboard_press(_identifier, _key, _modifiers, _groupid, _priority);
         add_binding(_binding);
     }
@@ -48,7 +48,7 @@ function ApisInputPressState(_scheme, _identifier) : ApisInputState(_scheme, _id
         return chain(bind_to(_identifier));
     }
     
-    static bound_to_keyboard_press = function(_identifier, _key, _modifiers = undefined, _groupid = undefined, _priority = 0) {
+    static bound_to_keyboard_press = function(_identifier, _key, _modifiers = undefined, _groupid = undefined, _priority = undefined) {
         return chain(bind_keyboard_press(_identifier, _key, _modifiers, _groupid, _priority));
     }
 }

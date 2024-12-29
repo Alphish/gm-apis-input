@@ -48,7 +48,7 @@ function ApisInputSystem() constructor {
         return register_binding(_binding);
     }
     
-    static define_binding_keyboard_press = function(_identifier, _key, _modifiers = undefined, _groupid = undefined, _priority = 0) {
+    static define_binding_keyboard_press = function(_identifier, _key, _modifiers = undefined, _groupid = undefined, _priority = undefined) {
         var _signal = new ApisInputKeyboardPress(_key, _modifiers, _groupid, _priority);
         var _binding = new ApisInputPressBinding(_identifier, _signal);
         return register_binding(_binding);
