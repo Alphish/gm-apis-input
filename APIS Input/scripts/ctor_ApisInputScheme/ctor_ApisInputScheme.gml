@@ -18,13 +18,17 @@ function ApisInputScheme(_identifier) constructor {
     
     static process = function() {
         binding_processor.update();
-        
         array_foreach(states, function(_state) { _state.update(); });
     }
     
-    // -----------
-    // Definitions
-    // -----------
+    static clear = function() {
+        binding_processor.clear();
+        array_foreach(states, function(_state) { _state.clear(); });
+    }
+    
+    // --------
+    // Bindings
+    // --------
     
     static register_binding = function(_binding) {
         var _key = string_lower(_binding.identifier);
@@ -36,6 +40,10 @@ function ApisInputScheme(_identifier) constructor {
         return _binding;
     }
     
+    // ------
+    // States
+    // ------
+    
     static register_state = function(_state) {
         var _key = string_lower(_state.identifier);
         if (struct_exists(states_by_id, _key))
@@ -44,6 +52,11 @@ function ApisInputScheme(_identifier) constructor {
         array_push(states, _state);
         states_by_id[$ _key] = _state;
         return _state;
+    }
+    
+    static find_state = function(_identifier) {
+        var _key = string_lower(_identifier);
+        return states_by_id[$ _key];
     }
     
     static define_press_state = function(_identifier) {

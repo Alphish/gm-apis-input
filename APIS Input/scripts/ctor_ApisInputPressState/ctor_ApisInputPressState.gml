@@ -20,6 +20,13 @@ function ApisInputPressState(_scheme, _identifier) : ApisInputState(_scheme, _id
         is_released = current_binding.is_released;
     }
     
+    static clear = function() {
+        current_binding = undefined;
+        is_pressed = false;
+        is_down = false;
+        is_released = false;
+    }
+    
     static resolve_current_binding = function() {
         var _index = array_find_index(bindings, function(_binding) { return _binding.is_pressed; });
         return _index >= 0 ? bindings[_index] : current_binding;

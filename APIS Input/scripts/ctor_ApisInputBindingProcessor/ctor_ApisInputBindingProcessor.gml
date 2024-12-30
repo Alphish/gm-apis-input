@@ -74,4 +74,12 @@ function ApisInputBindingProcessor(_bindings) constructor {
             }
         });
     }
+    
+    static clear = function() {
+        array_foreach(standalone_bindings, function(_binding) { _binding.clear(); });
+        
+        array_foreach(binding_groups, function(_group) {
+            array_foreach(_group, function(_binding) { _binding.clear(); });
+        });
+    }
 }

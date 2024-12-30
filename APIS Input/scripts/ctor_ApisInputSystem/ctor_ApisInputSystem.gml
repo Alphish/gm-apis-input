@@ -77,4 +77,15 @@ function ApisInputSystem() constructor {
         var _scheme = new _constructor(_identifier);
         return register_scheme(_scheme);
     }
+    
+    static change_scheme = function(_scheme) {
+        if (is_string(_scheme))
+            _scheme = schemes_by_id[$ _scheme];
+        
+        if (_scheme == current_scheme)
+            return;
+        
+        current_scheme.clear();
+        current_scheme = _scheme;
+    }
 }
