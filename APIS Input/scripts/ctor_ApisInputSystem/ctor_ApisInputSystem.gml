@@ -1,9 +1,9 @@
 function ApisInputSystem() constructor {
     bindings_by_id = {};
     
-    schemes = [];
-    schemes_by_id = {};
-    current_scheme = undefined;
+    modes = [];
+    modes_by_id = {};
+    current_mode = undefined;
     
     static init = function() {
         if (static_get(self) == static_get(ApisInputSystem)) {
@@ -14,7 +14,7 @@ function ApisInputSystem() constructor {
     }
     
     static reconfigure = function() {
-        array_foreach(schemes, function(_scheme) { _scheme.reconfigure(); });
+        array_foreach(modes, function(_mode) { _mode.reconfigure(); });
     }
     
     // ----------
@@ -22,7 +22,7 @@ function ApisInputSystem() constructor {
     // ----------
     
     static process = function() {
-        current_scheme.process();
+        current_mode.process();
     }
     
     // --------
@@ -54,38 +54,38 @@ function ApisInputSystem() constructor {
         return register_binding(_binding);
     }
     
-    // -------
-    // Schemes
-    // -------
+    // -----
+    // Modes
+    // -----
     
-    static register_scheme = function(_scheme) {
-        var _key = string_lower(_scheme.identifier);
-        if (struct_exists(schemes_by_id, _scheme))
-            throw ApisInputException.scheme_duplicate(_scheme.identifier);
+    static register_mode = function(_mode) {
+        var _key = string_lower(_mode.identifier);
+        if (struct_exists(modes_by_id, _mode))
+            throw ApisInputException.mode_duplicate(_mode.identifier);
         
-        array_push(schemes, _scheme);
-        schemes_by_id[$ _key] = _scheme;
-        return _scheme;
+        array_push(modes, _mode);
+        modes_by_id[$ _key] = _mode;
+        return _mode;
     }
     
-    static find_scheme = function(_identifier) {
+    static find_mode = function(_identifier) {
         var _key = string_lower(_identifier);
-        return schemes_by_id[$ _key];
+        return modes_by_id[$ _key];
     }
     
-    static define_scheme = function(_identifier, _constructor = ApisInputScheme) {
-        var _scheme = new _constructor(_identifier);
-        return register_scheme(_scheme);
+    static define_mode = function(_identifier, _constructor = ApisInputMode) {
+        var _mode = new _constructor(_identifier);
+        return register_mode(_mode);
     }
     
-    static change_scheme = function(_scheme) {
-        if (is_string(_scheme))
-            _scheme = schemes_by_id[$ _scheme];
+    static switch_mode = function(_mode) {
+        if (is_string(_mode))
+            _mode = modes_by_id[$ _mode];
         
-        if (_scheme == current_scheme)
+        if (_mode == current_mode)
             return;
         
-        current_scheme.clear();
-        current_scheme = _scheme;
+        current_mode.clear();
+        current_mode = _mode;
     }
 }

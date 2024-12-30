@@ -57,20 +57,20 @@ ApisInputException.unexpected_type = function(_entity, _identifier, _type, _foun
 ApisInputException.binding_duplicate = function(_identifier) {
     return new ApisInputException(
         $"apis_input_binding_duplicate",
-        $"Cannot define another input binding with '{_identifier}' identifier. The input system already defines a scheme with this identifier."
+        $"Cannot define another input binding with '{_identifier}' identifier. The input system already defines a binding with this identifier."
         );
 }
 
-ApisInputException.scheme_duplicate = function(_identifier) {
+ApisInputException.mode_duplicate = function(_identifier) {
     return new ApisInputException(
-        $"apis_input_scheme_duplicate",
-        $"Cannot define another input scheme with '{_identifier}' identifier. The input system already defines a scheme with this identifier."
+        $"apis_input_mode_duplicate",
+        $"Cannot define another input mode with '{_identifier}' identifier. The input system already defines a mode with this identifier."
         );
 }
 
-ApisInputException.state_duplicate = function(_scheme, _identifier) {
+ApisInputException.state_duplicate = function(_mode, _identifier) {
     return new ApisInputException(
         $"apis_input_state_duplicate",
-        $"Cannot define another input state with '{_identifier}' identifier. The scheme '{_scheme.identifier}' already defines an input state with this identifier."
+        $"Cannot define another input state with '{_identifier}' identifier. The mode '{_mode.identifier}' already defines an input state with this identifier."
         );
 }

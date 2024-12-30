@@ -1,4 +1,4 @@
-function ApisInputPressState(_scheme, _identifier) : ApisInputState(_scheme, _identifier) constructor {
+function ApisInputPressState(_mode, _identifier) : ApisInputState(_mode, _identifier) constructor {
     bindings = [];
     current_binding = undefined;
     
@@ -38,7 +38,7 @@ function ApisInputPressState(_scheme, _identifier) : ApisInputState(_scheme, _id
     
     static add_binding = function(_binding) {
         array_push(bindings, _binding);
-        scheme.register_binding(_binding);
+        mode.register_binding(_binding);
     }
     
     static bind_to = function(_identifier) {

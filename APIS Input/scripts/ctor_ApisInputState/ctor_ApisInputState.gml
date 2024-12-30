@@ -1,5 +1,5 @@
-function ApisInputState(_scheme, _identifier) constructor {
-    scheme = _scheme;
+function ApisInputState(_mode, _identifier) constructor {
+    mode = _mode;
     identifier = _identifier;
     
     static update = function() {

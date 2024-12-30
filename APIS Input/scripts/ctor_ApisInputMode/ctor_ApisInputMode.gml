@@ -1,4 +1,4 @@
-function ApisInputScheme(_identifier) constructor {
+function ApisInputMode(_identifier) constructor {
     identifier = _identifier;
     
     bindings = [];

@@ -17,19 +17,19 @@ function apis_input_get_binding(_identifier, _type = undefined) {
     return _binding;
 }
 
-function apis_input_get_scheme(_identifier, _type = undefined) {
-    var _scheme = apis_input_get_system().find_scheme(_identifier);
-    if (!is_undefined(_type) && (!is_struct(_scheme) || !is_instanceof(_scheme, _type)))
-        throw ApisInputException.unexpected_type("scheme", _identifier, _type, _scheme);
+function apis_input_get_mode(_identifier, _type = undefined) {
+    var _mode = apis_input_get_system().find_mode(_identifier);
+    if (!is_undefined(_type) && (!is_struct(_mode) || !is_instanceof(_mode, _type)))
+        throw ApisInputException.unexpected_type("mode", _identifier, _type, _mode);
     
-    return _scheme;
+    return _mode;
 }
 
-function apis_input_get_state(_schemeid, _stateid, _type = undefined) {
-    var _scheme = apis_input_get_scheme(_schemeid);
-    var _state = !is_undefined(_scheme) ? _scheme.find_state(_stateid) : undefined;
+function apis_input_get_state(_modeid, _stateid, _type = undefined) {
+    var _mode = apis_input_get_mode(_modeid);
+    var _state = !is_undefined(_mode) ? _mode.find_state(_stateid) : undefined;
     if (!is_undefined(_type) && (!is_struct(_state) || !is_instanceof(_state, _type)))
-        throw ApisInputException.unexpected_type("state", _schemeid + "." + _stateid, _type, _state);
+        throw ApisInputException.unexpected_type("state", _modeid + "." + _stateid, _type, _state);
     
     return _state;
 }
