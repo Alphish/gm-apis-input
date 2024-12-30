@@ -3,14 +3,13 @@
 if (instance_number(sys_ApisInput) > 1)
     throw ApisInputException.instance_duplicate();
 
-if (!is_callable(system_constructor))
-    throw ApisInputException.invalid_system_constructor();
+if (is_callable(scheme)) {
+    var _is_constructor = script_exists(scheme) && asset_has_tags(scheme, ["@@constructor"], asset_script);
+    scheme = _is_constructor ? new scheme() : scheme();
+}
 
-var _is_constructor = script_exists(system_constructor) && asset_has_tags(system_constructor, ["@@constructor"], asset_script);
-system = _is_constructor ? new system_constructor() : system_constructor();
+if (!is_instanceof(scheme, ApisInputScheme))
+    throw ApisInputException.invalid_scheme();
 
-if (!is_instanceof(system, ApisInputSystem))
-    throw ApisInputException.invalid_system_constructor();
-
-system.init();
-system.reconfigure();
+scheme.init();
+scheme.reconfigure();

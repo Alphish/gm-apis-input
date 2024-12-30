@@ -47,7 +47,7 @@ function ApisInputPressState(_mode, _identifier) : ApisInputState(_mode, _identi
     }
     
     static bind_keyboard_press = function(_identifier, _key, _modifiers = undefined, _groupid = undefined, _priority = undefined) {
-        var _binding = apis_input_get_system().define_binding_keyboard_press(_identifier, _key, _modifiers, _groupid, _priority);
+        var _binding = apis_input_scheme().define_binding_keyboard_press(_identifier, _key, _modifiers, _groupid, _priority);
         add_binding(_binding);
     }
     

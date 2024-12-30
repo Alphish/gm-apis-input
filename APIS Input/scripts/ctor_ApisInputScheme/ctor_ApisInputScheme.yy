@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"ctor_ApisInputSystem",
+  "%Name":"ctor_ApisInputScheme",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"ctor_ApisInputSystem",
+  "name":"ctor_ApisInputScheme",
   "parent":{
     "name":"APIS Input",
     "path":"folders/_Packages/Alphish/APIS Input.yy",

@@ -21,19 +21,19 @@ ApisInputException.instance_duplicate = function() {
         );
 }
 
-ApisInputException.invalid_system_constructor = function() {
+ApisInputException.invalid_scheme = function() {
     return new ApisInputException(
-        $"apis_input_invalid_system_constructor",
-        $"The 'system_constructor' variable of APIS Input system must be a constructor inheriting from ApisInputSystem or a function returning an instance of such a constructor."
+        $"apis_input_invalid_scheme",
+        $"The 'scheme' variable of APIS Input system must be an instance of ApisInputScheme, a constructor creating such an instance or a function returning such an instance."
         );
 }
 
-ApisInputException.custom_system_required = function() {
+ApisInputException.custom_scheme_required = function() {
     return new ApisInputException(
-        $"apis_input_custom_system_required",
-        $"Cannot create an instance of {nameof(ApisInputSystem)} directly. A custom input system must be created instead.\n" +
-        $"The custom input system must inherit from ApisInputSystem constructor and implement the init() method.\n" +
-        $"Once the custom input system is made, set the 'system_constructor' variable of APIS Input system instance to its constructor."
+        $"apis_input_custom_scheme_required",
+        $"Cannot initialise an instance of {nameof(ApisInputScheme)} directly. A custom input scheme must be created instead.\n" +
+        $"The custom input scheme must inherit from ApisInputScheme constructor and implement the init() method.\n" +
+        $"Once the custom input scheme is made, set the 'scheme' variable of APIS Input system to its instance or constructor."
         );
 }
 
@@ -57,14 +57,14 @@ ApisInputException.unexpected_type = function(_entity, _identifier, _type, _foun
 ApisInputException.binding_duplicate = function(_identifier) {
     return new ApisInputException(
         $"apis_input_binding_duplicate",
-        $"Cannot define another input binding with '{_identifier}' identifier. The input system already defines a binding with this identifier."
+        $"Cannot define another input binding with '{_identifier}' identifier. The input scheme already defines a binding with this identifier."
         );
 }
 
 ApisInputException.mode_duplicate = function(_identifier) {
     return new ApisInputException(
         $"apis_input_mode_duplicate",
-        $"Cannot define another input mode with '{_identifier}' identifier. The input system already defines a mode with this identifier."
+        $"Cannot define another input mode with '{_identifier}' identifier. The input scheme already defines a mode with this identifier."
         );
 }
 

@@ -5,12 +5,12 @@ function apis_input_get_instance() {
     return sys_ApisInput.id;
 }
 
-function apis_input_get_system() {
-    return apis_input_get_instance().system;
+function apis_input_scheme() {
+    return apis_input_get_instance().scheme;
 }
 
 function apis_input_get_binding(_identifier, _type = undefined) {
-    var _binding = apis_input_get_system().find_binding(_identifier);
+    var _binding = apis_input_scheme().find_binding(_identifier);
     if (!is_undefined(_type) && (!is_struct(_binding) || !is_instanceof(_binding, _type)))
         throw ApisInputException.unexpected_type("binding", _identifier, _type, _binding);
     
@@ -18,7 +18,7 @@ function apis_input_get_binding(_identifier, _type = undefined) {
 }
 
 function apis_input_get_mode(_identifier, _type = undefined) {
-    var _mode = apis_input_get_system().find_mode(_identifier);
+    var _mode = apis_input_scheme().find_mode(_identifier);
     if (!is_undefined(_type) && (!is_struct(_mode) || !is_instanceof(_mode, _type)))
         throw ApisInputException.unexpected_type("mode", _identifier, _type, _mode);
     

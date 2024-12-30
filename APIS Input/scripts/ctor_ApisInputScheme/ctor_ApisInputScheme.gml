@@ -1,4 +1,4 @@
-function ApisInputSystem() constructor {
+function ApisInputScheme() constructor {
     bindings_by_id = {};
     
     modes = [];
@@ -6,8 +6,8 @@ function ApisInputSystem() constructor {
     current_mode = undefined;
     
     static init = function() {
-        if (static_get(self) == static_get(ApisInputSystem)) {
-            throw ApisInputException.custom_system_required();
+        if (static_get(self) == static_get(ApisInputScheme)) {
+            throw ApisInputException.custom_scheme_required();
         } else {
             throw ApisInputException.method_not_implemented(self, nameof(init));
         }

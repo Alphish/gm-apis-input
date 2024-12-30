@@ -1,2 +1,2 @@
 if (process_automatically)
-    system.process();
+    scheme.process();
